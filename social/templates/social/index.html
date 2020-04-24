@@ -1,0 +1,24 @@
+{% load socialaccount %}
+<html>
+<head>
+    <title>Google Registration</title>
+</head>
+<body>
+<h1>My Google Login Project HOME</h1>
+{% if user.is_authenticated %}
+    <p>Welcome, {{ user.username }} !</p>
+    <p>Welcome, {{ user.email }} !</p>
+    <br><br>
+    <a id="1" href="{% url 'altrapagina' %}" class="btn btn-success">Altrapagina</a>
+    <br><br>
+    <a id="2" href="{% url 'altrapagina2' %}" class="btn btn-success">Altrapagina2</a>
+    <br><br>
+    <a id="logout" href="{% url 'account_logout' %}" class="btn btn-success">Logout</a>
+
+{% else %}
+    <h1>Non sei Loggato</h1>
+    <a href="{% provider_login_url 'google' %}">Login with Google</a>
+{% endif %}
+
+</body>
+</html>

@@ -1,0 +1,30 @@
+{% load socialaccount %}
+<html>
+<head>
+    <title>Google Registration</title>
+</head>
+<body>
+<h1>My Google Login Project ALTRA PAGINA2</h1>
+<div class="navbar-collapse collapse">
+    <div class="navbar-form navbar-right">
+        {% if user.is_authenticated %}
+            <p>Welcome, {{ user.username }} !</p>
+            <p>Welcome, {{ user.email }} !</p>
+            <br><br>
+            <a id="1" href="/" class="btn btn-success">Home</a>
+            <br><br>
+            <a id="2" href="{% url 'altrapagina' %}" class="btn btn-success">Altrapagina</a>
+            <br><br>
+            <a id="logout" href="{% url 'account_logout' %}" class="btn btn-success">Logout</a>
+        {% else %}
+            <a id="google_login" href="{% url 'google_login' %}" class="btn btn-success">
+                Sign in with Google
+            </a>
+            <br>
+
+        {% endif %}
+    </div>
+</div>
+
+</body>
+</html>
